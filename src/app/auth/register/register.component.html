@@ -1,91 +1,115 @@
 <section class="vh-100">
-    <div class="container py-5 h-100">
-      <div class="container-fluid h-custom">
-        <div
-          class="
+  <div class="container py-5 h-100">
+    <div class="container-fluid h-custom">
+      <div
+        class="
             row
             flex-grow-1 flex-sm-grow-0
             justify-content-center
             align-items-center
             h-100
           "
-        >
-          <div class="col-sm-6">
-            <div class="service-card">
-              <div class="card">
-                <i class="bi bi-house-door-fill">
-                  <link
-                    rel="stylesheet"
-                    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-                  <link
-                    rel="stylesheet"
-                    href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" />
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png"
-                    class="img-fluid"
-                    alt="Sample image"
+      >
+        <div class="col-sm-6">
+          <div class="service-card">
+            <div class="card">
+              <i class="bi bi-house-door-fill">
+                <link
+                  rel="stylesheet"
+                  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+                <link
+                  rel="stylesheet"
+                  href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png"
+                  class="img-fluid"
+                  alt="Sample image"
                 /></i>
-              </div>
             </div>
           </div>
-          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <form>
-              <div class="divider d-flex align-items-center my-4">
-                  <p class="text-center fw-bold mx-3 mb-0">  <i class="bi bi-house-door-fill"></i> Üye olun!</p>
-                  <hr style="width:60%;text-align:left;margin-left:0">
-              
-                
-              </div>
-  
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <input
-                  type="email"
-                  id="form3Example3"
-                  class="form-control form-control-lg"
-                  placeholder="Enter a valid email address"
-                />
-                <label class="form-label" for="form3Example3"
-                  >Email address</label
-                >
-              </div>
-  
-              <!-- Password input -->
-              <div class="form-outline mb-3">
-                <input
-                  type="password"
-                  id="form3Example4"
-                  class="form-control form-control-lg"
-                  placeholder="Enter password"
-                />
-                <label class="form-label" for="form3Example4">Password</label>
-              </div>
-  
-              <div class="d-flex justify-content-between align-items-center">
-                <!-- Checkbox -->
-               
-               
-              </div>
-  
-              <div class="text-center text-lg-start mt-4 pt-2">
-                <button
-                  type="button"
-                  class="btn btn-primary btn-lg"
-                  style="padding-left: 2.5rem; padding-right: 2.5rem"
-                >
-                  Giriş Yap
-                </button>
-                <p class="small fw-bold mt-2 pt-1 mb-0">
-                  Zaten Üyeyim
-                  <a href="#!" class="link-danger">Giriş Yap</a>
-                </p>
-              </div>
-            </form>
-          </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form>
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center fw-bold mx-3 mb-0"><i class="bi bi-house-door-fill"></i> Üye olun!</p>
+              <hr style="width:60%;text-align:left;margin-left:0">
+
+
+            </div>
+            <label class="form-label" for="form3Example3"
+            >
+              <mark><i class="bi bi-mailbox2"></i> Email address</mark>
+            </label
+            >
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input
+                type="email"
+                id="form3Example3"
+                class="form-control form-control-lg"
+                placeholder="Enter a valid email address"
+              />
+
+            </div>
+            <label class="form-label" for="form3Example4">
+              <mark><i class="bi bi-mailbox2"></i> Password</mark>
+            </label>
+
+            <div class="form-outline mb-3">
+              <input
+                type="password"
+                id="form3Example4"
+                class="form-control form-control-lg"
+                placeholder="Enter password"
+              />
+
+            </div>
+            <label class="form-label" for="form3Example4">
+              <mark><i class="bi bi-mailbox2"></i> İsminiz</mark>
+            </label>
+            <div class="form-outline mb-3">
+              <input
+                type="password"
+                id="form3Example5"
+                class="form-control form-control-lg"
+                placeholder="Enter password"
+              />
+
+            </div>
+            <label class="form-label" for="form3Example4">
+              <mark><i class="bi bi-mailbox2"></i> Soyisminiz</mark>
+            </label>
+            <div class="form-outline mb-3">
+              <input
+                type="password"
+                id="form3Example6"
+                class="form-control form-control-lg"
+                placeholder="Enter password"
+              />
+
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem"
+              >
+                Üye Ol
+              </button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">
+                Zaten Üyeyim
+                <a routerLink="/auth/login" class="link-danger">
+                  <mark>Giriş Yap</mark>
+                </a>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </section>
-  
-  <!-- DEMO 1 -->
-  
+  </div>
+</section>
