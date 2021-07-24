@@ -8,7 +8,7 @@ import {RegisterComponent} from './register/register.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {ToastService, AngularToastifyModule} from 'angular-toastify';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AuthComponent,
@@ -21,7 +21,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatToolbarModule,
     AngularToastifyModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
   ],
   providers: [ToastService]
 })

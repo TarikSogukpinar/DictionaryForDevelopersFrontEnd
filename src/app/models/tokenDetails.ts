@@ -1,6 +1,6 @@
 export class TokenDetail {
-    email: string;
-    username: string;
-    claims: string[];
-  }
-  
+  email: string;
+  username: string;
+  claims: string[];
+}
+

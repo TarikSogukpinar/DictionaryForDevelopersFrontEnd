@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './components/home/home.component';
@@ -14,8 +13,10 @@ import {ContactComponent} from './components/contact/contact.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {SssComponent} from './components/sss/sss.component';
-import { ToastService, AngularToastifyModule } from 'angular-toastify';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ToastService, AngularToastifyModule} from 'angular-toastify';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     AngularToastifyModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
 
 
   ],
@@ -44,7 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ToastService,
     {
       provide: 'apiUrl',
-      useValue: 'https://localhost:5001/api/Auth'
+      useValue: 'https://localhost:5001/api/'
     }
   ],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import {LoginModel} from "../models/loginModel";
 import {SingleResponseModel} from "../models/singleResponseModel";
 import {TokenModel} from "../models/tokenModel";
 import {TokenDetail} from "../models/tokenDetails";
+import {RegisterModel} from "../models/registerModel";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,12 @@ export class AuthService {
   }
 
   login(loginModel: LoginModel) {
-    let loginPath = this.apiUrl + 'login';
+    let loginPath = this.apiUrl + 'Auth/login';
     return this.httpClient.post<SingleResponseModel<TokenModel>>(loginPath, loginModel);
+  }
+
+  register(registerModel: RegisterModel): Observable<SingleResponseModel<TokenModel>> {
+    let registerPath = this.apiUrl + "Auth/register";
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(registerPath, registerModel);
   }
 }

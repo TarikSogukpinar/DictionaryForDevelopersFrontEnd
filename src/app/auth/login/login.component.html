@@ -29,42 +29,41 @@
           </div>
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
+          <form [formGroup]="loginForm">
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0"><i class="bi bi-house-door-fill"></i> Lütfen Giriş Yapın!</p>
               <hr style="width:60%;text-align:left;margin-left:0">
-
-
             </div>
-
             <!-- Email input -->
-            <label class="form-label" for="form3Example3"><mark><i class="bi bi-mailbox2"></i> E-Posta</mark> </label
+            <label class="form-label" for="form3Example3">
+              <mark><i class="bi bi-mailbox2"></i> E-Posta</mark>
+            </label
             >
             <div class="form-outline mb-4">
-              <input
-                type="email"
-                id="form3Example3"
-                class="form-control form-control-lg"
-                placeholder="E posta adresinizi giriniz"
+              <input formControlName="email"
+                     type="email"
+                     id="form3Example3"
+                     class="form-control form-control-lg"
+                     placeholder="E posta adresinizi giriniz"
               />
-
             </div>
-            <label class="form-label" for="form3Example4"> <mark><i class="bi bi-shield-lock-fill"></i> Şifre</mark></label>
+            <label class="form-label" for="form3Example4">
+              <mark><i class="bi bi-shield-lock-fill"></i> Şifre</mark>
+            </label>
             <!-- Password input -->
             <div class="form-outline mb-3">
-              <input
-                type="password"
-                id="form3Example4"
-                class="form-control form-control-lg"
-                placeholder="Şifrenizi giriniz"
+              <input formControlName="password"
+                     type="password"
+                     id="form3Example4"
+                     class="form-control form-control-lg"
+                     placeholder="Şifrenizi giriniz"
               />
-
             </div>
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button
-                type="button"
-                class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem"
+              <button (click)=login()
+                      type="button"
+                      class="btn btn-primary btn-lg"
+                      style="padding-left: 2.5rem; padding-right: 2.5rem"
               >
                 Giriş Yap
               </button>
@@ -81,5 +80,3 @@
     </div>
   </div>
 </section>
-
-<!-- DEMO 1 -->
