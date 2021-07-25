@@ -3,3 +3,11 @@ export interface TokenModel {
   expiration: string;
 }
 
+export class TokenDetail {
+  email: string;
+  username: string;
+  claims: string[];
+}
+
+
+

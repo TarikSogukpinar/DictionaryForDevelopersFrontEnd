@@ -20,11 +20,11 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createLoginForm();
+    this.createRegisterForm();
   }
 
 
-  createLoginForm() {
+  createRegisterForm() {
     this.registerForm = this.formBuilder.group({
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
     }
     //delete this.registerForm.value['confirmPassword'];
     let registerModel: RegisterModel = Object.assign({}, this.registerForm.value);
+
     this.authService.register(registerModel).subscribe(responseSuccess => {
       this.toastrService.success(responseSuccess.message, 'Başarılı Yönlendiriliyorsunuz');
       setTimeout(() => {
@@ -55,9 +56,9 @@ export class RegisterComponent implements OnInit {
         return;
 
       }
-      this.toastrService.error(
-        responseError.status + ' ' + responseError.name, responseError.error
-      );
+      // this.toastrService.error(
+      //   responseError.status + ' ' + responseError.name, responseError.error
+      // );
     });
   }
 

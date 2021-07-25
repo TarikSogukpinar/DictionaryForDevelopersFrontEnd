@@ -7,7 +7,7 @@
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 0.1);
     margin-top: 50px;
   }
-  
+
   .service-card:hover {
     box-shadow: 4px 4px 4px rgba(58, 105, 243, 0.3);
     -webkit-transform: translate(0, -8px);
@@ -17,23 +17,23 @@
     transform: translate(0, -8px);
     box-shadow: 0 40px 40px rgba(0, 0, 0, 0.2);
   }
-  
+
   .service-card i {
     font-size: 150px;
     padding: 10% 0;
     background-color: #f3f3f3;
-    color: #31d0d4;
+    color: #1764a8;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
-    
+
   }
-  
+
   .service-card:hover i {
     color: #fff;
     transition: all ease-in-out 0.1s;
   }
-  
+
   .service-card i:after {
     content: "";
     position: absolute;
@@ -43,19 +43,18 @@
     height: 100%;
     transform: scaleY(0);
     transform-origin: bottom center;
-    background: linear-gradient(to left, #8487e2, #31d0d4, #31d0d4, #8487e2);
+    background: linear-gradient(to left, #3f51b5, #3f51b5, #3f51b5, #3f51b5);
     z-index: -1;
     transition: transform 0.5s;
   }
-  
+
   .service-card:hover i::after {
     transform: scaleY(1);
   }
-  
+
   .service-card h3 {
     margin-top: 2%;
     font-size: 44px;
     font-weight: bold;
     color: #464646;
   }
-  

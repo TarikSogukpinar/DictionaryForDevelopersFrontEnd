@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 
 const Message = {
-  enterSuccess: "Giriş Başarılı",
+  enterSuccess: "Giriş Başarılı Yönlendiriliyorsunuz!",
   notEmptySpace: "Boş alan bırakmamalısınız!"
 };
 
@@ -17,7 +17,9 @@ const Message = {
 
 
 export class LoginComponent implements OnInit {
+  dataLoaded = false;
   loginForm: FormGroup;
+
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
               private router: Router,
@@ -41,10 +43,12 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({}, this.loginForm.value)
 
       this.authService.login(loginModel).subscribe(response => {
-        this.toastrService.info(response.message);
+        console.log(response.data)
         this.toastrService.info(Message.enterSuccess)
+        this.dataLoaded = true;
+        localStorage.setItem("token", response.data.token);
         setTimeout(() => {
-          return this.router.navigate(['/']);
+          return this.router.navigate(['/auth/profile']);
         }, 5000);
 
       }, responseError => {

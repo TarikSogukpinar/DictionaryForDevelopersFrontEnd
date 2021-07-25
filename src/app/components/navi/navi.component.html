@@ -1,6 +1,11 @@
 <header class="header">
   <mat-toolbar color="primary">
-    <span>Dictionary For Developers</span>
+
+    <div routerLink="/">
+
+      <span><i class="bi bi-journal-bookmark-fill"></i> Dictionary For Developers</span>
+    </div>
+
     <span class="example-spacer"></span>
     <ul class="header-menu">
       <li>
@@ -28,11 +33,18 @@
         >
       </li>
 
-      <li>
+      <li *ngIf="!isAuth()">
         <a routerLink="/auth/login" routerLinkActive="active"><i class="bi bi-person-circle"></i> Giriş Yap</a>
       </li>
-      <li>
+      <li *ngIf="!isAuth()">
         <a routerLink="/auth/register" routerLinkActive="active"><i class="bi bi-people-fill"></i> Üye Ol</a>
+      </li>
+
+      <li *ngIf="isAuth()">
+        <a routerLink="/auth/profile" routerLinkActive="active"><i class="bi bi-person-circle"></i> Profilin </a>
+      </li>
+      <li *ngIf="isAuth()">
+        <a (click)="logout()"  routerLinkActive="active"><i class="bi bi-people-fill"></i> Çıkış Yap</a>
       </li>
     </ul>
   </mat-toolbar>

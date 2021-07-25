@@ -22,7 +22,7 @@
   font-size: 150px;
   padding: 10% 0;
   background-color: #f3f3f3;
-  color: #31d0d4;
+  color: #1764a8;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1;
@@ -43,7 +43,7 @@
   height: 100%;
   transform: scaleY(0);
   transform-origin: bottom center;
-  background: linear-gradient(to left, #8487e2, #31d0d4, #31d0d4, #8487e2);
+  background: linear-gradient(to left, #3f51b5, #3f51b5, #3f51b5, #3f51b5);
   z-index: -1;
   transition: transform 0.5s;
 }

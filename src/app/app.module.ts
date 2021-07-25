@@ -16,6 +16,7 @@ import {SssComponent} from './components/sss/sss.component';
 import {ToastService, AngularToastifyModule} from 'angular-toastify';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { AddWordComponent } from './components/add-word/add-word.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     AboutComponent,
     ContactComponent,
-    SssComponent
+    SssComponent,
+    AddWordComponent
   ],
   imports: [
     BrowserModule,

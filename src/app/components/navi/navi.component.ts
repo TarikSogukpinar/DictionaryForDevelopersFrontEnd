@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
+import {LocalstorageService} from "../../services/localstorage.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-navi',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NaviComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService, private localStorageService: LocalstorageService,
+              private toastrService: ToastrService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  isAuth(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  logout() {
+    this.localStorageService.removeToken();
+    this.localStorageService.removeCurrentCustomer();
+    this.toastrService.success("Başarı ile çıkış yaptınız")
+    return this.router.navigate(["/"]);
   }
 
 }

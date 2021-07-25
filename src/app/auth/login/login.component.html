@@ -1,3 +1,9 @@
+<div *ngIf="dataLoaded == true" class="d-flex justify-content-center" style="margin-top: 150px">
+  <div class="spinner-border text-dark" style="width: 16rem; height: 16rem;" role="status">
+
+  </div>
+</div>
+
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="container-fluid h-custom">
@@ -10,10 +16,10 @@
           h-100
         "
       >
-        <div class="col-sm-6">
+        <div class="col-sm-6" *ngIf="dataLoaded == false">
           <div class="service-card">
             <div class="card">
-              <i class="bi bi-house-door-fill">
+              <i class="bi bi-house-fill">
                 <link
                   rel="stylesheet"
                   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
@@ -21,15 +27,16 @@
                   rel="stylesheet"
                   href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
                 <img
-                  src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png"
+                  src="./assets/logo1.png"
                   class="img-fluid"
                   alt="Sample image"
-                /></i>
+                />
+              </i>
             </div>
           </div>
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form [formGroup]="loginForm">
+          <form [formGroup]="loginForm" *ngIf="dataLoaded == false">
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0"><i class="bi bi-house-door-fill"></i> Lütfen Giriş Yapın!</p>
               <hr style="width:60%;text-align:left;margin-left:0">

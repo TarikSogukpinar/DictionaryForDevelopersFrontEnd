@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LocalstorageService {
+  currentUser: string = 'currentUser';
   tokenKey = "token"
   constructor() { }
 
@@ -22,9 +23,9 @@ export class LocalstorageService {
   //   localStorage.setItem(this.currentCustomer,JSON.stringify(customer));
   // }
   //
-  // removeCurrentCustomer(){
-  //   localStorage.removeItem(this.currentCustomer);
-  // }
+  removeCurrentCustomer(){
+    localStorage.removeItem(this.currentUser);
+  }
 
   setToken(token: string){
     localStorage.setItem(this.tokenKey, token);

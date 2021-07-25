@@ -8,12 +8,15 @@ import {RegisterComponent} from './register/register.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {ToastService, AngularToastifyModule} from 'angular-toastify';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
+import {ToastrModule} from 'ngx-toastr';
+import { ProfileComponent } from './profile/profile.component';
+
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularToastifyModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
+    ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
   ],
   providers: [ToastService]
 })

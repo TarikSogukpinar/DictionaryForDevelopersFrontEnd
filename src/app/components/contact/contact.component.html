@@ -13,23 +13,25 @@
         <div class="col-sm-6">
           <div class="service-card">
             <div class="card">
-              <i class="bi bi-house-door-fill">
+              <i class="bi bi-chat-text-fill">
                 <link
                   rel="stylesheet"
                   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
                 <link
                   rel="stylesheet"
                   href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
+
                 <img
-                  src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png"
+                  src="./assets/logo3.png"
                   class="img-fluid"
                   alt="Sample image"
-                /></i>
+                />
+              </i>
             </div>
           </div>
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
+          <form [formGroup]="contactAdd">
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0"><i class="bi bi-house-door-fill"></i> İletişime geçebilirsiniz!
               </p>
@@ -42,10 +44,10 @@
               <mark><i class="bi bi-mailbox2"></i> İsim</mark>
             </label
             >
-            <!-- Email input -->
+
             <div class="form-outline mb-4">
-              <input
-                type="email"
+              <input formControlName="firstName"
+                type="text"
                 id="form3Example3"
                 class="form-control form-control-lg"
                 placeholder="İsminizi Giriniz"
@@ -57,7 +59,7 @@
             </label>
 
             <div class="form-outline mb-3">
-              <input
+              <input formControlName="lastName"
                 type="text"
                 id="form3Example4"
                 class="form-control form-control-lg"
@@ -73,7 +75,7 @@
             <div class="form-outline mb-3">
 
 
-              <textarea class="form-control" aria-label="With textarea" style="max-height: 100px"></textarea>
+              <textarea formControlName="message" class="form-control" aria-label="With textarea" style="max-height: 100px"></textarea>
 
 
             </div>
@@ -83,7 +85,7 @@
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button
+              <button (click)="addContact()"
                 type="button"
                 class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem"

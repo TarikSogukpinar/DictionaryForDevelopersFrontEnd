@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {ContactModel} from "../models/contactModel";
 import {Observable} from "rxjs";
 import {ResponseModel} from "../models/responseModel";
+import {ListResponseModel} from "../models/listResponseModel";
+import {WordModel} from "../models/wordModel";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,12 @@ export class ContactService {
   }
 
   sendContact(contactModel: ContactModel): Observable<ResponseModel> {
-    // @ts-ignore
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "Contacts/addContact" + contactModel)
+    let newPath = this.apiUrl + 'Contacts/addContact'
+    return this.httpClient.post<ResponseModel>(newPath, contactModel);
+  }
+
+  getWords(): Observable<ListResponseModel<WordModel>> {
+    let newPath = this.apiUrl + "Words/getAllWords"
+    return this.httpClient.get<ListResponseModel<WordModel>>(newPath)
   }
 }
