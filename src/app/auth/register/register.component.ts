@@ -29,7 +29,9 @@ export class RegisterComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
       email: ["", Validators.required],
-      password: ["", Validators.required]
+      password: ["", Validators.required],
+      github: ["", Validators.required],
+      linkedin: ["", Validators.required]
     })
   }
 
@@ -47,18 +49,12 @@ export class RegisterComponent implements OnInit {
       }, 5000);
 
     }, responseError => {
-      if (responseError.error.ValidationError) {
-        for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-          this.toastrService.error(
-            responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası'
-          );
+      if (responseError.error.Errors.length > 0) {
+        for (let i = 0; i < responseError.error.Errors.length; i++) {
+          this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası")
         }
-        return;
-
       }
-      // this.toastrService.error(
-      //   responseError.status + ' ' + responseError.name, responseError.error
-      // );
+
     });
   }
 

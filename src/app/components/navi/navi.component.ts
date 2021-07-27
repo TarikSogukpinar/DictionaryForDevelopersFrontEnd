@@ -11,6 +11,7 @@ import {ToastrService} from "ngx-toastr";
 })
 export class NaviComponent implements OnInit {
 
+
   constructor(private router: Router, private authService: AuthService, private localStorageService: LocalstorageService,
               private toastrService: ToastrService) {
   }
@@ -28,5 +29,6 @@ export class NaviComponent implements OnInit {
     this.toastrService.success("Başarı ile çıkış yaptınız")
     return this.router.navigate(["/"]);
   }
+
 
 }

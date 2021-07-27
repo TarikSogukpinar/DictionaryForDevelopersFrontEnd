@@ -17,6 +17,7 @@ import {ToastService, AngularToastifyModule} from 'angular-toastify';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { AddWordComponent } from './components/add-word/add-word.component';
+import { WordPipe } from './pipes/word.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddWordComponent } from './components/add-word/add-word.component';
     AboutComponent,
     ContactComponent,
     SssComponent,
-    AddWordComponent
+    AddWordComponent,
+    WordPipe
   ],
   imports: [
     BrowserModule,

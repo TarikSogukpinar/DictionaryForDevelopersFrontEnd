@@ -3,7 +3,7 @@
 
     <div routerLink="/">
 
-      <span><i class="bi bi-journal-bookmark-fill"></i> Dictionary For Developers</span>
+      <span><i class="bi bi-journal-bookmark-fill"></i> Geliştiriciler için ingilizce sözlük</span>
     </div>
 
     <span class="example-spacer"></span>
@@ -13,23 +13,23 @@
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          ><i class="bi bi-house-door-fill"></i> Ana Sayfa</a
+        ><i class="bi bi-house-door-fill"></i> Ana Sayfa</a
         >
       </li>
 
       <li>
         <a routerLink="/about" routerLinkActive="active"
-          ><i class="bi bi-cursor-fill"></i> Nedir?</a
+        ><i class="bi bi-cursor-fill"></i> Nedir?</a
         >
       </li>
       <li>
-        <a routerLink="/about" routerLinkActive="active"
-          ><i class="bi bi-plus-lg"></i> Kelime Ekle</a
+        <a routerLink="/add-word" routerLinkActive="active"
+        ><i class="bi bi-plus-lg"></i> Kelime Ekle</a
         >
       </li>
       <li>
         <a routerLink="/contact" routerLinkActive="active"
-          ><i class="bi bi-chat-square-text-fill"></i> İletişim</a
+        ><i class="bi bi-chat-square-text-fill"></i> İletişim</a
         >
       </li>
 
@@ -44,7 +44,7 @@
         <a routerLink="/auth/profile" routerLinkActive="active"><i class="bi bi-person-circle"></i> Profilin </a>
       </li>
       <li *ngIf="isAuth()">
-        <a (click)="logout()"  routerLinkActive="active"><i class="bi bi-people-fill"></i> Çıkış Yap</a>
+        <a (click)="logout()" routerLinkActive="active"><i class="bi bi-people-fill"></i> Çıkış Yap</a>
       </li>
     </ul>
   </mat-toolbar>

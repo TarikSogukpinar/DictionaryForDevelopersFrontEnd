@@ -1,41 +1,58 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {UserModel} from "../models/userModel";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalstorageService {
   currentUser: string = 'currentUser';
-  tokenKey = "token"
-  constructor() { }
+  tokenKey: string = "token"
 
-  setItem(key:string,value:any){localStorage.setItem(key,value);}
-  getItem(key:string){return localStorage.getItem(key);}
-  deleteItem(key:string){localStorage.removeItem(key);}
-  clear(){localStorage.clear();}
+  constructor() {
+  }
 
-  get isLocalStorageSupported(): boolean {return !!localStorage}
+  setItem(key: string, value: any) {
+    localStorage.setItem(key, value);
+  }
 
-  // getCurrentCustomer():Customer{
-  //   return JSON.parse(localStorage.getItem(this.currentCustomer));
-  // }
-  //
-  // setCurrentCustomer(customer:Customer){
-  //   localStorage.setItem(this.currentCustomer,JSON.stringify(customer));
-  // }
-  //
-  removeCurrentCustomer(){
+  getItem(key: string) {
+    return localStorage.getItem(key);
+  }
+
+  deleteItem(key: string) {
+    localStorage.removeItem(key);
+  }
+
+  clear() {
+    localStorage.clear();
+  }
+
+  get isLocalStorageSupported(): boolean {
+    return !!localStorage
+  }
+
+  getCurrentUser(): UserModel {
+    var user = JSON.parse(<string>localStorage.getItem(this.currentUser));
+    return user;
+  }
+
+  setCurrentCustomer(user: UserModel) {
+    localStorage.setItem(this.currentUser, JSON.stringify(user));
+  }
+
+  removeCurrentCustomer() {
     localStorage.removeItem(this.currentUser);
   }
 
-  setToken(token: string){
+  setToken(token: string) {
     localStorage.setItem(this.tokenKey, token);
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem(this.tokenKey)
   }
 
-  removeToken(){
+  removeToken() {
     localStorage.removeItem(this.tokenKey)
   }
 }

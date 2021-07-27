@@ -10,9 +10,9 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  words: WordModel[] = [];
+  words: WordModel[];
   dataLoaded = false;
-  filterText = "";
+  filterText= "";
 
   constructor(private wordService: WordService,
               private activatedRouter: ActivatedRoute,

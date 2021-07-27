@@ -13,6 +13,11 @@ export class WordService {
   constructor(private httpClient: HttpClient, @Inject('apiUrl') private apiUrl: String) {
   }
 
+  addWords(wordModel: WordModel): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Words/addWord", wordModel);
+
+  }
+
   getWords(wordModel: WordModel): Observable<ListResponseModel<WordModel>> {
     let newPath = this.apiUrl + "Words/getAllWords"
     return this.httpClient.get<ListResponseModel<WordModel>>(newPath);
