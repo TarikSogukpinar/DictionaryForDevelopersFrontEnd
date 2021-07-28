@@ -4,6 +4,7 @@ import {ToastrService} from "ngx-toastr";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {WordService} from "../../services/word.service";
 import {Router} from "@angular/router";
+import {MessageModel} from "../../models/messageModel";
 
 @Component({
   selector: 'app-add-word',
@@ -37,19 +38,19 @@ export class AddWordComponent implements OnInit {
     if (this.addedWordForm.valid) {
       let wordModel = Object.assign({}, this.addedWordForm.value)
       this.wordService.addWords(wordModel).subscribe(response => {
-        this.toastrService.success(response.message, 'Kelime başarı ile eklendi!')
+        this.toastrService.success(response.message, MessageModel.wordSuccess)
         setTimeout(() => {
           return this.router.navigate(['/']);
         }, 5000);
       }, responseError => {
         if (responseError.error.Errors.length > 0) {
           for (let i = 0; i < responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası")
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, MessageModel.cautionError)
           }
         }
       })
     } else {
-      this.toastrService.error("Boş alan bırakmamalısınız!");
+      this.toastrService.error(MessageModel.notEmptySpace);
     }
   }
 

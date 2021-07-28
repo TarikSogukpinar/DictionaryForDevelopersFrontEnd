@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {LocalstorageService} from "../../services/localstorage.service";
 import {ToastrService} from "ngx-toastr";
+import {MessageModel} from "../../models/messageModel";
 
 @Component({
   selector: 'app-navi',
@@ -12,7 +13,9 @@ import {ToastrService} from "ngx-toastr";
 export class NaviComponent implements OnInit {
 
 
-  constructor(private router: Router, private authService: AuthService, private localStorageService: LocalstorageService,
+  constructor(private router: Router,
+              private authService: AuthService,
+              private localStorageService: LocalstorageService,
               private toastrService: ToastrService) {
   }
 
@@ -26,7 +29,7 @@ export class NaviComponent implements OnInit {
   logout() {
     this.localStorageService.removeToken();
     this.localStorageService.removeCurrentCustomer();
-    this.toastrService.success("Başarı ile çıkış yaptınız")
+    this.toastrService.success(MessageModel.exitSuccess)
     return this.router.navigate(["/"]);
   }
 

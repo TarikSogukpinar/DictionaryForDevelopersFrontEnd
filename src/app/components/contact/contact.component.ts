@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {ContactService} from "../../services/contact.service";
 import {Router} from "@angular/router";
+import {MessageModel} from "../../models/messageModel";
 
 @Component({
   selector: 'app-contact',
@@ -35,14 +36,14 @@ export class ContactComponent implements OnInit {
       let contactModel = Object.assign({}, this.contactAdd.value)
 
       this.contactService.sendContact(contactModel).subscribe(response => {
-        this.toastrService.success("Mesaj başarı ile gönderildi. Ana Sayfaya Yönlendiriliyorsunuz!")
+        this.toastrService.success(MessageModel.messageSentAndToDirectMainPage)
         setTimeout(() => {
           return this.router.navigate(['/']);
         }, 5000);
 
       })
     } else {
-      this.toastrService.error("Eksik alan bırakmamalısınız.", 'Dikkat')
+      this.toastrService.error(MessageModel.notEmptySpace, MessageModel.cautionError)
     }
   }
 

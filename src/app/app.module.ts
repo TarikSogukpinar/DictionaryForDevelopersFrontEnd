@@ -12,7 +12,6 @@ import {AboutComponent} from './components/about/about.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {SssComponent} from './components/sss/sss.component';
 import {ToastService, AngularToastifyModule} from 'angular-toastify';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -27,7 +26,6 @@ import { WordPipe } from './pipes/word.pipe';
     FooterComponent,
     AboutComponent,
     ContactComponent,
-    SssComponent,
     AddWordComponent,
     WordPipe
   ],

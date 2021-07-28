@@ -6,11 +6,7 @@ import {ToastrService} from "ngx-toastr";
 import {UserService} from "../../services/user.service";
 import {UserModel} from "../../models/userModel";
 import {LocalstorageService} from "../../services/localstorage.service";
-
-const Message = {
-  enterSuccess: "Giriş Başarılı Yönlendiriliyorsunuz!",
-  notEmptySpace: "Boş alan bırakmamalısınız!"
-};
+import {MessageModel} from "../../models/messageModel";
 
 @Component({
   selector: 'app-login',
@@ -49,7 +45,7 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({}, this.loginForm.value)
 
       this.authService.login(loginModel).subscribe(response => {
-        this.toastrService.info(Message.enterSuccess)
+        this.toastrService.info(MessageModel.enterSuccess)
         this.dataLoaded = true;
         localStorage.setItem("token", response.data.token);
         this.getUserByEmail(loginModel.email);
@@ -60,12 +56,12 @@ export class LoginComponent implements OnInit {
       }, responseError => {
         if (responseError.error.Errors.length > 0) {
           for (let i = 0; i < responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası")
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, MessageModel.validationError)
           }
         }
       })
     } else {
-      this.toastrService.error(Message.notEmptySpace)
+      this.toastrService.error(MessageModel.notEmptySpace)
     }
   }
 

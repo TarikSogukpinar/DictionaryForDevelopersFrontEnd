@@ -4,6 +4,7 @@ import {ToastrService} from "ngx-toastr";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {RegisterModel} from "../../models/registerModel";
+import {MessageModel} from "../../models/messageModel";
 
 @Component({
   selector: 'app-register',
@@ -37,13 +38,12 @@ export class RegisterComponent implements OnInit {
 
   register() {
     if (this.registerForm.invalid) {
-      this.toastrService.error("Lütfen boş alan bırakmayınız", 'Dikkat');
+      this.toastrService.error(MessageModel.notEmptySpace, MessageModel.cautionError);
     }
-    //delete this.registerForm.value['confirmPassword'];
     let registerModel: RegisterModel = Object.assign({}, this.registerForm.value);
 
     this.authService.register(registerModel).subscribe(responseSuccess => {
-      this.toastrService.success(responseSuccess.message, 'Başarılı Yönlendiriliyorsunuz');
+      this.toastrService.success(responseSuccess.message, MessageModel.enterSuccess);
       setTimeout(() => {
         return this.router.navigate(['/auth/login']);
       }, 5000);
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
     }, responseError => {
       if (responseError.error.Errors.length > 0) {
         for (let i = 0; i < responseError.error.Errors.length; i++) {
-          this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası")
+          this.toastrService.error(responseError.error.Errors[i].ErrorMessage, MessageModel.validationError)
         }
       }
 

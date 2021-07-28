@@ -4,6 +4,9 @@ import {Observable} from "rxjs";
 import {SingleResponseModel} from "../models/singleResponseModel";
 import {UserModel} from "../models/userModel";
 import {ResponseModel} from "../models/responseModel";
+import {TokenModel} from "../models/tokenModel";
+import {UserPasswordUpdateModel} from "../models/userPasswordUpdate";
+import {UserUpdateModel} from "../models/userUpdateModel";
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +17,24 @@ export class UserService {
   }
 
 
-  getById(id: number): Observable<SingleResponseModel<UserModel>> {
+  getByUserId(id: number): Observable<SingleResponseModel<UserUpdateModel>> {
     let newPath = this.apiUrl + "Users/getbyid?id" + id;
-    return this.httpClient.get<SingleResponseModel<UserModel>>(newPath)
+    return this.httpClient.get<SingleResponseModel<UserUpdateModel>>(newPath)
   }
 
-  updateInfo(user: UserModel): Observable<ResponseModel> {
-    let newPath = this.apiUrl + "Users/updateinfo";
-    return this.httpClient.put<ResponseModel>(newPath, user);
+
+  updateUser(userUpdateModel: UserUpdateModel): Observable<ResponseModel> {
+    let newPath = this.apiUrl + "Users/updateUser"
+    return this.httpClient.post<ResponseModel>(newPath, userUpdateModel);
   }
 
-  getUserByEmail(email: String): Observable<SingleResponseModel<any>> {
+  getUserByEmail(email: String): Observable<SingleResponseModel<UserModel>> {
     let newPath = this.apiUrl + "Users/getByEmail?email=" + email;
     return this.httpClient.get<SingleResponseModel<UserModel>>(newPath);
+  }
+
+  changePassword(userPasswordUpdateModel: UserPasswordUpdateModel): Observable<ResponseModel> {
+    let newPath = this.apiUrl + "Users/changePassword"
+    return this.httpClient.post<ResponseModel>(newPath, userPasswordUpdateModel);
   }
 }

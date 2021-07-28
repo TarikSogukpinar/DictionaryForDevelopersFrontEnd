@@ -6,6 +6,7 @@ import {TokenDetail, TokenModel} from "../models/tokenModel";
 import {RegisterModel} from "../models/registerModel";
 import {Observable} from "rxjs";
 import {LocalstorageService} from "./localstorage.service";
+import {UserModel} from "../models/userModel";
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,8 @@ export class AuthService {
       return false;
     }
   }
+
+
 
   logout() {
     this.localStorage.removeToken()
